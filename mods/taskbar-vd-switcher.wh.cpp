@@ -1143,6 +1143,7 @@ HMODULE WINAPI LoadLibraryExW_Hook(LPCWSTR path, HANDLE file, DWORD flags) {
         const wchar_t* base = wcsrchr(path, L'\\');
         base = base ? base + 1 : path;
         if (_wcsicmp(base, L"Taskbar.View.dll") == 0) {
+            // Taskbar.View.dll
             WindhawkUtils::SYMBOL_HOOK taskbarViewDllHooks[] = {{
                 {LR"(public: __cdecl winrt::SystemTray::implementation::IconView::IconView(void))"},
                 &IconView_IconView_Original, IconView_IconView_Hook,
@@ -1175,6 +1176,7 @@ static bool HookTaskbarDllSymbols() {
 }
 
 static bool HookTaskbarViewDllSymbols(HMODULE h) {
+    // Taskbar.View.dll
     WindhawkUtils::SYMBOL_HOOK taskbarViewDllHooks[] = {{
         {LR"(public: __cdecl winrt::SystemTray::implementation::IconView::IconView(void))"},
         &IconView_IconView_Original, IconView_IconView_Hook,
