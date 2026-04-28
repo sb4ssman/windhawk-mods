@@ -1144,11 +1144,11 @@ HMODULE WINAPI LoadLibraryExW_Hook(LPCWSTR path, HANDLE file, DWORD flags) {
         base = base ? base + 1 : path;
         if (_wcsicmp(base, L"Taskbar.View.dll") == 0) {
             // Taskbar.View.dll
-            WindhawkUtils::SYMBOL_HOOK taskbarViewDllHooks[] = {{
+            WindhawkUtils::SYMBOL_HOOK taskbarViewHooks[] = {{
                 {LR"(public: __cdecl winrt::SystemTray::implementation::IconView::IconView(void))"},
                 &IconView_IconView_Original, IconView_IconView_Hook,
             }};
-            if (WindhawkUtils::HookSymbols(h, taskbarViewDllHooks, ARRAYSIZE(taskbarViewDllHooks)))
+            if (WindhawkUtils::HookSymbols(h, taskbarViewHooks, ARRAYSIZE(taskbarViewHooks)))
                 g_taskbarViewDllLoaded = true;
         }
     }
@@ -1177,11 +1177,11 @@ static bool HookTaskbarDllSymbols() {
 
 static bool HookTaskbarViewDllSymbols(HMODULE h) {
     // Taskbar.View.dll
-    WindhawkUtils::SYMBOL_HOOK taskbarViewDllHooks[] = {{
+    WindhawkUtils::SYMBOL_HOOK taskbarViewHooks[] = {{
         {LR"(public: __cdecl winrt::SystemTray::implementation::IconView::IconView(void))"},
         &IconView_IconView_Original, IconView_IconView_Hook,
     }};
-    if (!WindhawkUtils::HookSymbols(h, taskbarViewDllHooks, ARRAYSIZE(taskbarViewDllHooks))) return false;
+    if (!WindhawkUtils::HookSymbols(h, taskbarViewHooks, ARRAYSIZE(taskbarViewHooks))) return false;
     g_taskbarViewDllLoaded = true;
     return true;
 }
