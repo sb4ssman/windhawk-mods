@@ -16,7 +16,15 @@
 
 Adds numbered buttons to the system tray — one per virtual desktop. Click to switch directly.
 
+![Default taskbar — three numbered buttons, first active](https://raw.githubusercontent.com/sb4ssman/Windhawk-Mod-Lab/main/virtual-desktop-switcher/vds-screenshot1.png)
+
 Buttons auto-arrange into a grid when the taskbar is tall enough for multiple rows.
+
+![Taller taskbar — auto-rows stacks into a column](https://raw.githubusercontent.com/sb4ssman/Windhawk-Mod-Lab/main/virtual-desktop-switcher/vds-screenshot2.png)
+
+Works alongside other mods.
+
+![Complex setup with other mods active](https://raw.githubusercontent.com/sb4ssman/Windhawk-Mod-Lab/main/virtual-desktop-switcher/vds-screenshot3.png)
 
 ## Settings
 - **Position** — five positions within the system tray
